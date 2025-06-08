@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASEAN Zero Hunger | Rice & Food Security Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="loader">
+        <div class="loader-content">
+            <img src="assets/images/asean-logo.jpg" alt="ASEAN Logo" class="loader-logo">
+            <div class="loader-spinner"></div>
+            <p>Loading ASEAN Zero Hunger Dashboard...</p>
+        </div>
+    </div>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <img src="assets/images/Asean-logo-2.png" alt="ASEAN Logo" class="hero-logo">
+            <h1>ASEAN Zero Hunger Initiative</h1>
+            <p class="subtitle">Data-Driven Insights for Food Security in Southeast Asia</p>
+            <a href="#dashboard" class="cta-button">Explore the Data</a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">
+                <img src="assets/images/zero_hunger.png" alt="ASEAN Logo" class="navbar-logo">
+                <span>Zero Hunger</span>
+            </a>
+            <button class="navbar-toggler" id="navbar-toggler">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="#dashboard"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+                <li><a href="#country-comparison"><i class="fas fa-flag"></i> Country Comparison</a></li>
+                <li><a href="#trends"><i class="fas fa-chart-area"></i> Trends</a></li>
+                <li><a href="#methodology"><i class="fas fa-book"></i> Methodology</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="dashboard">
+        <section class="dashboard-intro">
+            <div class="container">
+                <h2><i class="fas fa-seedling"></i> ASEAN Food Security Dashboard</h2>
+                <p class="lead">Interactive visualization of rice production and food insecurity indicators across Southeast Asia</p>
+                
+                <div class="country-selector">
+                    <label for="country-filter"><i class="fas fa-filter"></i> Filter by Country:</label>
+                    <select id="country-filter" class="form-select">
+                        <option value="all">All Countries</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Myanmar">Myanmar</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Cambodia">Cambodia</option>
+                        <option value="Laos">Laos</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="Brunei">Brunei</option>
+                        <option value="Timor-Leste">Timor-Leste</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section id="production-section" class="dashboard-section">
+            <div class="container">
+                <div class="section-header">
+                    <h3><i class="fas fa-tractor"></i> Rice Production & Trade</h3>
+                    <div class="chart-type-toggle">
+                        <button class="chart-toggle-btn active" data-chart="productionChart" data-type="bar"><i class="fas fa-chart-bar"></i> Bar</button>
+                        <button class="chart-toggle-btn" data-chart="productionChart" data-type="line"><i class="fas fa-chart-line"></i> Line</button>
+                        <button class="chart-toggle-btn" data-chart="productionChart" data-type="radar"><i class="fas fa-chart-pie"></i> Radar</button>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="productionChart"></canvas>
+                </div>
+                
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h4><i class="fas fa-download"></i> Rice Imports</h4>
+                            <div class="chart-actions">
+                                <button class="chart-action-btn" data-chart="importChart" data-type="bar"><i class="fas fa-chart-bar"></i></button>
+                                <button class="chart-action-btn active" data-chart="importChart" data-type="pie"><i class="fas fa-chart-pie"></i></button>
+                            </div>
+                        </div>
+                        <div class="chart-container-sm">
+                            <canvas id="importChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h4><i class="fas fa-upload"></i> Rice Exports</h4>
+                            <div class="chart-actions">
+                                <button class="chart-action-btn active" data-chart="exportChart" data-type="bar"><i class="fas fa-chart-bar"></i></button>
+                                <button class="chart-action-btn" data-chart="exportChart" data-type="doughnut"><i class="fas fa-chart-pie"></i></button>
+                            </div>
+                        </div>
+                        <div class="chart-container-sm">
+                            <canvas id="exportChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="insights-card">
+                    <h4><i class="fas fa-lightbulb"></i> Key Insights</h4>
+                    <ul class="insights-list">
+                        <li><strong>Indonesia</strong> leads in production but still imports significant amounts due to high domestic demand</li>
+                        <li><strong>Thailand and Vietnam</strong> dominate rice exports, accounting for over 80% of regional exports</li>
+                        <li><strong>Philippines</strong> has the highest rice imports despite substantial domestic production</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="nutrition-section" class="dashboard-section">
+            <div class="container">
+                <div class="section-header">
+                    <h3><i class="fas fa-utensils"></i> Nutrition Indicators</h3>
+                    <div class="chart-type-toggle">
+                        <button class="chart-toggle-btn active" data-chart="nutritionChart" data-type="bar"><i class="fas fa-chart-bar"></i> Bar</button>
+                        <button class="chart-toggle-btn" data-chart="nutritionChart" data-type="line"><i class="fas fa-chart-line"></i> Line</button>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="nutritionChart"></canvas>
+                </div>
+                
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h4><i class="fas fa-bread-slice"></i> Average Dietary Energy</h4>
+                            <div class="chart-actions">
+                                <button class="chart-action-btn active" data-chart="avgDietChart" data-type="bar"><i class="fas fa-chart-bar"></i></button>
+                            </div>
+                        </div>
+                        <div class="chart-container-sm">
+                            <canvas id="avgDietChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h4><i class="fas fa-weight"></i> Minimum Dietary Energy</h4>
+                            <div class="chart-actions">
+                                <button class="chart-action-btn active" data-chart="minDietChart" data-type="bar"><i class="fas fa-chart-bar"></i></button>
+                            </div>
+                        </div>
+                        <div class="chart-container-sm">
+                            <canvas id="minDietChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="insecurity-section" class="dashboard-section">
+            <div class="container">
+                <div class="section-header">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Food Insecurity</h3>
+                    <div class="chart-type-toggle">
+                        <button class="chart-toggle-btn active" data-chart="insecurityChart" data-type="bar"><i class="fas fa-chart-bar"></i> Bar</button>
+                        <button class="chart-toggle-btn" data-chart="insecurityChart" data-type="line"><i class="fas fa-chart-line"></i> Line</button>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="insecurityChart"></canvas>
+                </div>
+                
+                <div class="chart-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="prevalence">Prevalence</button>
+                        <button class="tab-btn" data-tab="gender">Gender Analysis</button>
+                        <button class="tab-btn" data-tab="population">Affected Population</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="prevalence-tab">
+                        <div class="chart-grid">
+                            <div class="chart-card">
+                                <h4><i class="fas fa-percentage"></i> Undernourishment</h4>
+                                <div class="chart-container-sm">
+                                    <canvas id="undernourishmentChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="chart-card">
+                                <h4><i class="fas fa-female"></i> Female Food Insecurity</h4>
+                                <div class="chart-container-sm">
+                                    <canvas id="femaleInsecurityChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="gender-tab">
+                        <div class="chart-container">
+                            <canvas id="genderComparisonChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content" id="population-tab">
+                        <div class="chart-container">
+                            <canvas id="affectedPopulationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="country-comparison" class="dashboard-section">
+            <div class="container">
+                <h3><i class="fas fa-flag"></i> Country Comparison Tool</h3>
+                <p>Select up to 3 countries to compare their food security indicators</p>
+                
+                <div class="comparison-selector">
+                    <select class="form-select comparison-select" id="country1">
+                        <option value="">Select Country 1</option>
+                        <!-- Options will be populated by JS -->
+                    </select>
+                    <select class="form-select comparison-select" id="country2">
+                        <option value="">Select Country 2</option>
+                        <!-- Options will be populated by JS -->
+                    </select>
+                    <select class="form-select comparison-select" id="country3">
+                        <option value="">Select Country 3</option>
+                        <!-- Options will be populated by JS -->
+                    </select>
+                </div>
+                
+                <div class="comparison-results" id="comparison-results">
+                    <div class="comparison-chart-container">
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
+                    
+                    <div class="comparison-table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Indicator</th>
+                                    <th id="country1-header">Country 1</th>
+                                    <th id="country2-header">Country 2</th>
+                                    <th id="country3-header">Country 3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Will be populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="trends" class="dashboard-section">
+            <div class="container">
+                <h3><i class="fas fa-chart-line"></i> Historical Trends</h3>
+                <p>Explore how food security indicators have changed over time</p>
+                
+                <div class="trend-selector">
+                    <label for="trend-indicator">Select Indicator:</label>
+                    <select id="trend-indicator" class="form-select">
+                        <option value="production">Rice Production</option>
+                        <option value="imports">Rice Imports</option>
+                        <option value="exports">Rice Exports</option>
+                        <option value="undernourishment">Prevalence of Undernourishment</option>
+                        <option value="insecurity">Food Insecurity</option>
+                    </select>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="chatbot-section">
+            <div class="chatbot-container" id="chatbot-container">
+                <div class="chatbot-header">
+                    <div class="chatbot-title">
+                        <i class="fas fa-robot"></i>
+                        <h4>ASEAN Data Assistant</h4>
+                    </div>
+                    <div class="chatbot-actions">
+                        <button class="chatbot-action-btn" id="clear-chat"><i class="fas fa-trash"></i></button>
+                        <button class="chatbot-action-btn" id="minimize-chatbot"><i class="fas fa-minus"></i></button>
+                        <button class="chatbot-action-btn" id="close-chatbot"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>
+                
+                <div class="chatbot-messages" id="chatbot-messages">
+                    <div class="bot-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>Hello! I'm your ASEAN Data Assistant. I can help you explore food security data across Southeast Asia. What would you like to know?</p>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-suggestions">
+                    <div class="suggestion-category">
+                        <h5>Production & Trade</h5>
+                        <div class="suggestion-buttons">
+                            <button class="suggestion-btn">Top rice producers</button>
+                            <button class="suggestion-btn">Largest importers</button>
+                            <button class="suggestion-btn">Export trends</button>
+                        </div>
+                    </div>
+                    
+                    <div class="suggestion-category">
+                        <h5>Food Security</h5>
+                        <div class="suggestion-buttons">
+                            <button class="suggestion-btn">Most food insecure</button>
+                            <button class="suggestion-btn">Gender differences</button>
+                            <button class="suggestion-btn">Undernourishment</button>
+                        </div>
+                    </div>
+                    
+                    <div class="suggestion-category">
+                        <h5>Country Specific</h5>
+                        <div class="suggestion-buttons">
+                            <button class="suggestion-btn">Indonesia data</button>
+                            <button class="suggestion-btn">Philippines stats</button>
+                            <button class="suggestion-btn">Vietnam overview</button>
+                        </div>
+                    </div>
+                    
+                    <div class="suggestion-category">
+                        <h5>Analysis</h5>
+                        <div class="suggestion-buttons">
+                            <button class="suggestion-btn">Key findings</button>
+                            <button class="suggestion-btn">GDP vs nutrition</button>
+                            <button class="suggestion-btn">Recommendations</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chatbot-input">
+                    <input type="text" id="user-input" placeholder="Ask about ASEAN food security..." autocomplete="off">
+                    <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                    <button id="voice-btn"><i class="fas fa-microphone"></i></button>
+                </div>
+            </div>
+            
+            <button id="chatbot-toggle" class="floating-btn">
+                <i class="fas fa-comment-dots"></i>
+                <span class="notification-badge">1</span>
+            </button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/images/asean-logo-2.png" alt="ASEAN Logo" class="footer-logo">
+                    <h5>ASEAN Zero Hunger Initiative</h5>
+                    <p>Data-Driven Solutions for Food Security</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h6>Resources</h6>
+                        <ul>
+                            <li><a href="#">Download Data</a></li>
+                            <li><a href="#">Methodology</a></li>
+                            <li><a href="#">Research Papers</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h6>About</h6>
+                        <ul>
+                            <li><a href="#">Our Team</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h6>Legal</h6>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Use</a></li>
+                            <li><a href="#">Data Sources</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 ASEAN Data Science Explorer. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>
