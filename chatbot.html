@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASEAN Zero Hunger Initiative | Chatbot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/chatbot.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo_2.png" alt="ASEAN Logo">
+                    <span class="logo-text"></span>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="chatbot.html" class="active">Chatbot</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Chatbot Hero -->
+    <section class="chatbot-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>ASEAN Food Security Assistant</h1>
+                <p>Get instant answers to your questions about rice production and food insecurity in Southeast Asia</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Main -->
+    <main class="chatbot-main">
+        <div class="container">
+            <div class="chatbot-container">
+                <div class="chatbot-header">
+                    <div class="chatbot-info">
+                        <div class="chatbot-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="chatbot-details">
+                            <h3>ASEAN Data Assistant</h3>
+                            <p class="status online"><i class="fas fa-circle"></i> Online</p>
+                        </div>
+                    </div>
+                    <div class="chatbot-actions">
+                        <button class="action-btn" id="clear-chatbot" title="Clear Chat">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                        <button class="action-btn" id="minimize-chatbot" title="Minimize">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button class="action-btn" id="close-chatbot" title="Close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chatbot-messages" id="chatbot-messages">
+                    <div class="bot-message">
+                        <div class="message-avatar">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="message-content">
+                            <p>Hello! 👋 I'm your ASEAN Data Assistant. I can help you explore food security data across Southeast Asia. What would you like to know?</p>
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quick-suggestions">
+                    <h4>Quick Suggestions</h4>
+                    <div class="suggestion-categories">
+                        <div class="suggestion-category">
+                            <h5><i class="fas fa-tractor"></i> Production & Trade</h5>
+                            <div class="suggestion-buttons">
+                                <button class="suggestion-btn">Top rice producers 🌾</button>
+                                <button class="suggestion-btn">Largest importers 🚢</button>
+                                <button class="suggestion-btn">Export trends 📈</button>
+                            </div>
+                        </div>
+                        
+                        <div class="suggestion-category">
+                            <h5><i class="fas fa-exclamation-triangle"></i> Food Security</h5>
+                            <div class="suggestion-buttons">
+                                <button class="suggestion-btn">Most food insecure 🚨</button>
+                                <button class="suggestion-btn">Gender differences ♀️♂️</button>
+                                <button class="suggestion-btn">People affected ❤️‍🩹</button>
+                            </div>
+                        </div>
+                        
+                        <div class="suggestion-category">
+                            <h5><i class="fas fa-flag"></i> Country Specific</h5>
+                            <div class="suggestion-buttons">
+                                <button class="suggestion-btn">Indonesia data 🇮🇩</button>
+                                <button class="suggestion-btn">Philippines stats 🇵🇭</button>
+                                <button class="suggestion-btn">Vietnam overview 🇻🇳</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="all-questions-btn-container">
+                    <button id="show-all-questions" class="all-questions-btn">
+                        <i class="fas fa-list"></i> See All Questions I Can Answer
+                    </button>
+                </div>
+
+                <div class="all-questions-modal" id="all-questions-modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>All Questions I Can Answer</h3>
+                            <button class="close-modal" id="close-modal">&times;</button>
+                        </div>
+                        <div class="questions-list" id="questions-list">
+                            <!-- Questions will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chatbot-input">
+                    <div class="emoji-picker-btn" id="emoji-picker-btn">
+                        <i class="far fa-smile"></i>
+                    </div>
+                    <input type="text" id="user-input" placeholder="Ask about ASEAN food security..." autocomplete="off">
+                    <button id="voice-btn" class="voice-btn" title="Voice Input">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button id="send-btn" class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                
+                <div class="emoji-picker" id="emoji-picker">
+                    <div class="emoji-category">
+                        <h6>Smileys & People</h6>
+                        <div class="emoji-grid">
+                            <span>😀</span><span>😃</span><span>😄</span><span>😁</span><span>😆</span>
+                            <span>😅</span><span>😂</span><span>🤣</span><span>😊</span><span>😇</span>
+                            <span>🙂</span><span>🙃</span><span>😉</span><span>😌</span><span>😍</span>
+                            <span>🥰</span><span>😘</span><span>😗</span><span>😙</span><span>😚</span>
+                        </div>
+                    </div>
+                    <div class="emoji-category">
+                        <h6>Food & Drink</h6>
+                        <div class="emoji-grid">
+                            <span>🍏</span><span>🍎</span><span>🍐</span><span>🍊</span><span>🍋</span>
+                            <span>🍌</span><span>🍉</span><span>🍇</span><span>🍓</span><span>🍈</span>
+                            <span>🍒</span><span>🍑</span><span>🥭</span><span>🍍</span><span>🥥</span>
+                            <span>🥝</span><span>🍅</span><span>🍆</span><span>🥑</span><span>🥦</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo_2.png" alt="ASEAN Logo">
+                        <span></span>
+                    </div>
+                    <p>Data-driven insights for achieving Sustainable Development Goal 2: Zero Hunger across Southeast Asia.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="chatbot.html">Chatbot</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://www.fao.org/faostat/en/#data">Data Sources</a></li>
+                        <li><a href="https://www.aseanstats.org/wp-content/uploads/2022/08/The-2022-ASEAN-SDG-Snapshot-Report.pdf">Research Papers</a></li>
+                        <li><a href="https://globalgoals.org/goals/2-zero-hunger/">The Global Goals (SDG 2)</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ASEAN Data Science Explorer - Dream G2. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <button class="theme-toggle-btn" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/chatbot.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+</body>
+</html>

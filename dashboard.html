@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASEAN Zero Hunger Initiative | Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <img src="assets/images/logo_2.png" alt="ASEAN Logo">
+                    <span class="logo-text"></span>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="chatbot.html">Chatbot</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard Hero -->
+    <section class="dashboard-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>ASEAN Food Security Dashboard</h1>
+                <p>Interactive data visualization and analysis of rice production and food insecurity in Southeast Asia</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Main -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- Key Metrics -->
+            <section class="metrics-section">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>163M</h3>
+                            <p>Total Rice Production</p>
+                            <span class="metric-change up"><i class="fas fa-arrow-up"></i> 2.4% from 2022</span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>12.6M</h3>
+                            <p>Total Rice Imports</p>
+                            <span class="metric-change down"><i class="fas fa-arrow-down"></i> 1.8% from 2022</span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>27.8M</h3>
+                            <p>Total Rice Exports</p>
+                            <span class="metric-change up"><i class="fas fa-arrow-up"></i> 5.2% from 2022</span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="metric-content">
+                            <h3>15.9%</h3>
+                            <p>Highest Undernourishment</p>
+                            <span class="metric-change down"><i class="fas fa-arrow-down"></i> 0.5% from 2022</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Production Section -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-tractor"></i> Rice Production</h2>
+                    <div class="chart-actions">
+                        <button class="chart-btn active" data-chart="production" data-type="bar">
+                            <i class="fas fa-chart-bar"></i> Bar
+                        </button>
+                        <button class="chart-btn" data-chart="production" data-type="radar">
+                            <i class="fas fa-chart-pie"></i> Radar
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="productionChart"></canvas>
+                </div>
+                
+                <div class="insights">
+                    <h3><i class="fas fa-lightbulb"></i> Key Insights</h3>
+                    <ul>
+                        <li><strong>Indonesia</strong> leads ASEAN in rice production with 163 million tons annually.</li>
+                        <li><strong>Vietnam and Thailand</strong> follow closely, together accounting for 60% of regional exports.</li>
+                        <li>Smaller nations like <strong>Timor-Leste and Brunei</strong> produce less than 1 million tons combined.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Trade Section -->
+            <section class="dashboard-section">
+                <div class="chart-tabs">
+                    <button class="tab-btn active" data-tab="import">Rice Imports</button>
+                    <button class="tab-btn" data-tab="export">Rice Exports</button>
+                </div>
+                
+                <div class="tab-content active" id="import-tab">
+                    <div class="chart-container">
+                        <canvas id="importChart"></canvas>
+                    </div>
+                    <div class="insights">
+                        <h3><i class="fas fa-lightbulb"></i> Key Insights</h3>
+                        <ul>
+                            <li><strong>Philippines</strong> imports the most rice (12.6M tons), accounting for 45% of regional imports.</li>
+                            <li><strong>Malaysia</strong> follows with 5.8M tons despite its smaller population size.</li>
+                            <li>Traditional producers like <strong>Thailand and Vietnam</strong> still import for specific rice varieties.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="export-tab">
+                    <div class="chart-container">
+                        <canvas id="exportChart"></canvas>
+                    </div>
+                    <div class="insights">
+                        <h3><i class="fas fa-lightbulb"></i> Key Insights</h3>
+                        <ul>
+                            <li><strong>Thailand and Vietnam</strong> dominate exports with over 25M tons each annually.</li>
+                            <li><strong>Cambodia</strong> has emerged as a significant exporter with 3.2M tons.</li>
+                            <li>Most ASEAN countries export some rice, except for <strong>Philippines and Indonesia</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Food Security Section -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Food Security Indicators</h2>
+                    <div class="chart-actions">
+                        <button class="chart-btn active" data-chart="insecurity" data-type="bar">
+                            <i class="fas fa-chart-bar"></i> Bar
+                        </button>
+                        <button class="chart-btn" data-chart="insecurity" data-type="pie">
+                            <i class="fas fa-chart-pie"></i> Pie
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-utensils"></i> Undernourishment</h3>
+                        </div>
+                        <div class="chart-container-sm">
+                            <canvas id="insecurityChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-venus-mars"></i> Gender Disparity</h3>
+                        </div>
+                        <div class="chart-container-sm">
+                            <canvas id="genderChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3><i class="fas fa-users"></i> Affected Population</h3>
+                        </div>
+                        <div class="chart-container-sm">
+                            <canvas id="populationChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <!-- Country Comparison Section -->
+        <section class="dashboard-section">
+            <div class="section-header">
+                <h2><i class="fas fa-flag"></i> Country Comparison</h2>
+            </div>
+            
+            <div class="comparison-selector">
+                <div class="filter-group">
+                    <label for="compare-country1">Country 1:</label>
+                    <select id="compare-country1" class="form-select">
+                        <option value="">Select Country</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Myanmar">Myanmar</option>
+                        <option value="Cambodia">Cambodia</option>
+                        <option value="Laos">Laos</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Timor-Leste">Timor-Leste</option>
+                        <option value="Brunei">Brunei</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="compare-country2">Country 2:</label>
+                    <select id="compare-country2" class="form-select">
+                        <option value="">Select Country</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Myanmar">Myanmar</option>
+                        <option value="Cambodia">Cambodia</option>
+                        <option value="Laos">Laos</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Timor-Leste">Timor-Leste</option>
+                        <option value="Brunei">Brunei</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="compare-country3">Country 3:</label>
+                    <select id="compare-country3" class="form-select">
+                        <option value="">Select Country</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Myanmar">Myanmar</option>
+                        <option value="Cambodia">Cambodia</option>
+                        <option value="Laos">Laos</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Timor-Leste">Timor-Leste</option>
+                        <option value="Brunei">Brunei</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="comparison-grid">
+                <div class="comparison-chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-tractor"></i> Rice Production</h3>
+                        <span class="chart-unit">Million Tons</span>
+                    </div>
+                    <div class="chart-container-sm">
+                        <canvas id="comparisonProductionChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="comparison-chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-ship"></i> Rice Imports</h3>
+                        <span class="chart-unit">Million Tons</span>
+                    </div>
+                    <div class="chart-container-sm">
+                        <canvas id="comparisonImportChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="comparison-chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-globe-asia"></i> Rice Exports</h3>
+                        <span class="chart-unit">Million Tons</span>
+                    </div>
+                    <div class="chart-container-sm">
+                        <canvas id="comparisonExportChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="comparison-chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-utensils"></i> Undernourishment</h3>
+                        <span class="chart-unit">Percentage</span>
+                    </div>
+                    <div class="chart-container-sm">
+                        <canvas id="comparisonUndernourishmentChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="comparison-chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-users"></i> Undernourished Population</h3>
+                        <span class="chart-unit">Millions</span>
+                    </div>
+                    <div class="chart-container-sm">
+                        <canvas id="comparisonPopulationChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="comparison-chart-card">
+                    <div class="chart-header">
+                        <h3><i class="fas fa-money-bill-wave"></i> GDP per Capita</h3>
+                        <span class="chart-unit">USD</span>
+                    </div>
+                    <div class="chart-container-sm">
+                        <canvas id="comparisonGDPChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            <!-- Trends Section -->
+            <section class="dashboard-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-line"></i> Historical Trends</h2>
+                    <div class="filter-group">
+                        <label for="trend-selector">Indicator:</label>
+                        <select id="trend-selector" class="form-select">
+                            <option value="production">Rice Production</option>
+                            <option value="undernourishment">Undernourishment</option>
+                            <option value="exports">Rice Exports</option>
+                            <option value="imports">Rice Imports</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/images/logo_2.png" alt="ASEAN Logo">
+                        <span></span>
+                    </div>
+                    <p>Data-driven insights for achieving Sustainable Development Goal 2: Zero Hunger across Southeast Asia.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="chatbot.html">Chatbot</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://www.fao.org/faostat/en/#data">Data Sources</a></li>
+                        <li><a href="https://www.aseanstats.org/wp-content/uploads/2022/08/The-2022-ASEAN-SDG-Snapshot-Report.pdf">Research Papers</a></li>
+                        <li><a href="https://globalgoals.org/goals/2-zero-hunger/">The Global Goals (SDG 2)</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 ASEAN Data Science Explorer - Dream G2. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle">
+        <button class="theme-toggle-btn" id="themeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+</body>
+</html>
