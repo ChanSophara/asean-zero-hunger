@@ -65,29 +65,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// Theme Toggle Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const themeToggle = document.getElementById('themeToggle');
-    const currentTheme = localStorage.getItem('theme') || 'day';
-    
-    // Set initial theme
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    updateThemeIcon(currentTheme);
-    
-    // Toggle theme on button click
-    if (themeToggle) {
-        themeToggle.addEventListener('click', function() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'day' ? 'night' : 'day';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-    }
-    
-    function updateThemeIcon(theme) {
-        const icon = theme === 'day' ? 'fa-moon' : 'fa-sun';
-        themeToggle.innerHTML = `<i class="fas ${icon}"></i>`;
-    }
-});
