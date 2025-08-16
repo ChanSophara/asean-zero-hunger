@@ -755,30 +755,6 @@ Could you try rephrasing your question or click one of the suggestion buttons be
         return response;
     }
     
-    // Sample questions for first-time users
-    if (!localStorage.getItem('chatbotGreeted')) {
-        setTimeout(() => {
-            addBotMessage("Here are some things you can ask me:");
-            
-            setTimeout(() => {
-                addBotMessage("• What are the top rice producing countries? 🌾");
-            }, 500);
-            
-            setTimeout(() => {
-                addBotMessage("• Which country has the highest food insecurity? 🚨");
-            }, 1000);
-            
-            setTimeout(() => {
-                addBotMessage("• Tell me about nutrition in Indonesia 🇮🇩");
-            }, 1500);
-            
-            setTimeout(() => {
-                addBotMessage("• What are the key findings from the data? 🔍");
-            }, 2000);
-            
-            localStorage.setItem('chatbotGreeted', 'true');
-        }, 2000);
-    }
 });
 
 
