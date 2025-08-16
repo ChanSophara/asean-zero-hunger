@@ -533,7 +533,7 @@ Vulnerable groups:
 - Rice Imports: 1.9M tons (4th in ASEAN) 🚢
 - Undernourishment: 7.2% prevalence (19.9M people) 🚨
 - Food Insecurity: 5% of females, 4.5% of males 📊
-- GDP per capita: $11,000 💰
+- GDP per capita, PPP: $11,000 💰
 
 Key Challenges:
 1. Geographic distribution challenges 🏝️
@@ -554,7 +554,7 @@ Successes:
 - Rice Imports: 12.6M tons (1st in ASEAN) 🚢
 - Undernourishment: 5.9% prevalence (6.9M people) 🚨
 - Food Insecurity: 43.8% females, 40.1% males (highest in ASEAN) 📊
-- GDP per capita: $8,600 💰
+- GDP per capita, PPP: $8,600 💰
 
 Key Challenges:
 1. Frequent typhoons damage crops 🌀
@@ -576,7 +576,7 @@ Government Initiatives:
 - Rice Exports: 26.7M tons (2nd in ASEAN) 🚢
 - Undernourishment: 5.2% prevalence (5.1M people) 🚨
 - Food Insecurity: 12.5% females, 11.8% males 📊
-- GDP per capita: $10,000 💰
+- GDP per capita, PPP: $10,000 💰
 
 Success Factors:
 1. Mekong Delta as rice basket 🌾
@@ -597,7 +597,7 @@ Emerging Challenges:
 - Rice Exports: 27.8M tons (1st in ASEAN) 🚢
 - Undernourishment: 5.6% prevalence (4.0M people) 🚨
 - Food Insecurity: 7.6% females, 7.0% males 📊
-- GDP per capita: $20,000 💰
+- GDP per capita, PPP: $20,000 💰
 
 Strengths:
 1. Global leader in jasmine rice 🌾
@@ -618,7 +618,7 @@ Challenges:
 - Rice Exports: 3.2M tons (4th in ASEAN) 🚢
 - Undernourishment: 4.6% prevalence (0.8M people) 🚨
 - Food Insecurity: 54.0% females, 48.5% males (highest rates) 📊
-- GDP per capita: $4,200 💰
+- GDP per capita, PPP: $4,200 💰
 
 Key Issues:
 1. High gender disparity in food access ♀️♂️
@@ -755,6 +755,5 @@ Could you try rephrasing your question or click one of the suggestion buttons be
         return response;
     }
     
+    
 });
-
-

@@ -1,6 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all charts
     initCharts();
+
+
+    // Auto-select Indonesia, Vietnam, and Thailand for comparison
+    setTimeout(() => {
+        document.getElementById('compare-country1').value = 'Indonesia';
+        document.getElementById('compare-country2').value = 'Vietnam';
+        document.getElementById('compare-country3').value = 'Thailand';
+        updateComparison();
+    }, 500);
     
     // Chart type toggle functionality
     document.querySelectorAll('.chart-btn').forEach(button => {
@@ -900,7 +909,3 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
-
-
-

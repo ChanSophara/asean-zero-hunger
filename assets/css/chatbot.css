@@ -87,6 +87,11 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.dark-mode .chatbot-header {
+    background: #5a6268 !important;
+    background: linear-gradient(135deg, #5a6268, #495057) !important;
+}
+
 .chatbot-info {
     display: flex;
     align-items: center;
@@ -157,12 +162,18 @@
     padding: 20px;
     overflow-y: auto;
     background-color: #f9f9f9;
-    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
-                      url('https://www.transparenttextures.com/patterns/rice-paper.png');
+    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9));
+                      
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
+
+.dark-mode .chatbot-messages {
+    background-color: #121212 !important; /* Darker black */
+    background-image: linear-gradient(rgba(23, 21, 21, 0.9), rgba(23, 21, 21, 0.9));
+}
+
 
 .bot-message, .user-message {
     display: flex;
@@ -199,6 +210,11 @@
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
 }
 
+.dark-mode .message-avatar{
+    background-color: #6c757d !important; /* Dark gray */
+}
+
+
 .user-message .message-avatar {
     background-color: var(--primary-dark);
     margin-right: 0;
@@ -220,8 +236,20 @@
     border-left: 3px solid var(--primary);
 }
 
+.dark-mode .bot-message .message-content {
+    background-color: #495057 !important; /* Dark gray */
+    border-left-color: #6c757d !important;
+}
+
 .user-message .message-content {
     background-color: var(--primary);
+    color: var(--white);
+    border-top-right-radius: 0;
+    border-right: 3px solid var(--secondary-dark);
+}
+
+.dark-mode .user-message .message-content {
+    background-color: #949aa0 !important;
     color: var(--white);
     border-top-right-radius: 0;
     border-right: 3px solid var(--secondary-dark);
@@ -703,4 +731,26 @@
     .questions-list {
         padding: 15px;
     }
+}
+
+
+/* Fix line breaks without adding white space */
+.message-content {
+    white-space: pre-line; /* Better than pre-wrap for this case */
+    word-break: break-word;
+    line-height: 1.3;
+    padding: 0 12px;
+    margin: 0;
+}
+
+/* Remove paragraph spacing */
+.message-content p {
+    margin: 0;
+    display: inline; /* Prevents paragraph spacing */
+}
+
+/* Keep existing message layout */
+.bot-message, .user-message {
+    margin: 0;
+    padding: 0;
 }

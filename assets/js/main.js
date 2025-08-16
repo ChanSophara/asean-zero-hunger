@@ -59,9 +59,52 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-
-
-
-
-
+// Create theme switcher button
+    const themeSwitcher = document.createElement('div');
+    themeSwitcher.className = 'theme-switcher';
+    themeSwitcher.innerHTML = `
+        <button class="theme-btn">
+            <i class="fas fa-sun sun-icon"></i>
+            <i class="fas fa-moon moon-icon"></i>
+        </button>
+    `;
+    document.body.appendChild(themeSwitcher);
+    
+    // Check for saved theme preference or use preferred color scheme
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Apply initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.body.classList.add('dark-mode');
+    }
+    
+    // Update button state based on current theme
+    function updateButtonState() {
+        const isDark = document.body.classList.contains('dark-mode');
+        const sunIcon = document.querySelector('.sun-icon');
+        const moonIcon = document.querySelector('.moon-icon');
+        
+        if (isDark) {
+            sunIcon.style.opacity = '0';
+            sunIcon.style.transform = 'scale(0.5) rotate(90deg)';
+            moonIcon.style.opacity = '1';
+            moonIcon.style.transform = 'scale(1) rotate(0deg)';
+        } else {
+            sunIcon.style.opacity = '1';
+            sunIcon.style.transform = 'scale(1) rotate(0deg)';
+            moonIcon.style.opacity = '0';
+            moonIcon.style.transform = 'scale(0.5) rotate(-90deg)';
+        }
+    }
+    
+    // Initialize button state
+    updateButtonState();
+    
+    // Theme toggle event listener
+    const themeBtn = document.querySelector('.theme-btn');
+    themeBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        updateButtonState();
+    });
